@@ -16,11 +16,10 @@ export class ProductsPage {
     }
 
     async sortBy(value: string) {
-        // NOTE: Confirm selector matches your app's DOM (using hyphen, not underscore)
         const dropdown = this.page.locator('[data-test="product-sort-container"]');
-        await dropdown.waitFor({ state: 'visible', timeout: 10000 }); // Wait max 10s for dropdown
+        await dropdown.waitFor({ state: 'visible', timeout: 10000 });
         await dropdown.selectOption(value);
-        await this.page.waitForTimeout(1000); // small wait to allow sorting effect
+        await this.page.waitForTimeout(1000);
     }
 
     async getProductNames(): Promise<string[]> {

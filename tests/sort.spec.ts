@@ -14,7 +14,6 @@ test.describe('Sort Feature', () => {
         await loginPage.goto();
         await loginPage.login(process.env.SAUCE_USERNAME!, process.env.SAUCE_PASSWORD!);
 
-        // Wait for inventory page to load fully
         await page.waitForURL('**/inventory.html', { timeout: 10000 });
         await page.waitForSelector('[data-test="product-sort-container"]', { timeout: 10000 });
 
@@ -22,7 +21,6 @@ test.describe('Sort Feature', () => {
     });
 
     test.beforeEach(async () => {
-        // Reload inventory page before each test to reset state
         await page.goto('https://www.saucedemo.com/inventory.html');
         await page.waitForSelector('[data-test="product-sort-container"]', { timeout: 10000 });
     });
